@@ -5,7 +5,7 @@ services:
     build: 
       context: .
       network: host
-    container_name: IP Change Notifier
+    container_name: IP-Change-Notifier
     volumes:
       - ./data:/data
     # user: '1000'
