@@ -1,11 +1,11 @@
-version: '3'
+version: '3.9'
 
 services:
   ip-change:
     build: 
       context: .
       network: host
-    container_name: ip-change
+    container_name: IP Change Notifier
     volumes:
       - ./data:/data
     # user: '1000'
@@ -13,15 +13,14 @@ services:
       # The discord webhook url. Include here or in .env file
       - WEBHOOK_URL=${WEBHOOK_URL}
       # The color of the Discord Embed in hex
-      - EMBED_COLOR=1bb106
+      - EMBED_COLOR=${DISCORD_COLOR}
       # The link when clicking the Embed author
-      - AUTHOR_URL=https://github.com/jack-mil/ip-notify
+      - AUTHOR_URL=https://github.com/Alexandreaam/IP-Change-Notifier
       # The icon for the Embed and User avatar
-      - ICON_URL=https://1.1.1.1/favicon.ico
+      - ICON_URL=${ICON_URL}
       # The file (in the container) to store the previous ip
       - IP_CACHE=/data/ip.txt
       # An additional log file (in the container)
       - LOG_FILE=/data/logs.txt
       # Time Zone for logs
-      - TZ=America/New_York
-        #    dns: 1.1.1.1
+      - TZ=${TIMEZONE}
