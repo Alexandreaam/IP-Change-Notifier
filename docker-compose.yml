@@ -9,6 +9,7 @@ services:
     volumes:
       - ./data:/data
     # user: '1000'
+    network_mode: bridge
     environment:
       # The discord webhook url. Include here or in .env file
       - WEBHOOK_URL=${WEBHOOK_URL}
