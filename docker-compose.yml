@@ -10,6 +10,7 @@ services:
       - ./data:/data
     # user: '1000'
     network_mode: bridge
+    restart: on-failure:5
     environment:
       # The discord webhook url. Include here or in .env file
       - WEBHOOK_URL=${WEBHOOK_URL}
